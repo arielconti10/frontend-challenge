@@ -48,6 +48,14 @@ export default createGlobalStyle`
     color: var(--veryLightBlue);
   }
 
+  h1.info {
+    color: var(--veryLightBlue);
+    margin-top: 5rem;
+    font-weight: lighter;
+    font-size: 3rem;
+    text-align: center;
+  }
+
   h2 {
     text-align: center;
     font-weight: normal;
@@ -58,6 +66,25 @@ export default createGlobalStyle`
     margin-bottom: 1rem;
     font-weight: normal;
     font-size: 2rem;
+  }
+
+  .spinner {
+    width: 3rem;
+    height: 3rem;
+    margin: 5rem auto 3rem;
+    border-radius: 50%;
+    border: 3px solid var(--veryLightBlue);
+    border-bottom-color: transparent;
+    animation: spinner linear 800ms infinite;
+  }
+
+  @keyframes spinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   @media (min-width: 576px) {
