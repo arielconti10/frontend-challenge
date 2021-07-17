@@ -11,11 +11,19 @@ const StatsWrapper = styled.section`
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
   }
+
+  @media (min-width: 600px) {
+    div span {
+      margin-bottom: 0.4rem;
+      font-size: 1.3rem;
+    }
+  }
+
   @media (min-width: 840px) {
     align-self: center;
     grid-area: pokestats;
     div + div {
-      margin-top: 1.7rem;
+      margin-top: 1.5rem;
     }
     div span {
       font-size: 1.5rem;

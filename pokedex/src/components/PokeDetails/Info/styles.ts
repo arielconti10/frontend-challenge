@@ -9,6 +9,11 @@ const InfoWrapper = styled.article`
     color: var(--veryLightBlue);
     font-size: 1.3rem;
   }
+  @media (min-width: 600px) {
+    span {
+      font-size: 1.5rem;
+    }
+  }
   @media (min-width: 840px) {
     grid-area: pokeinfo;
     gap: 1rem 3rem;
