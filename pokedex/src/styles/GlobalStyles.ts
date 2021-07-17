@@ -20,6 +20,12 @@ export default createGlobalStyle`
     --typeGroup12: #F5F5F5;
     --typeGroup13: #E6E0D4;
     --typeGroup14: #F5F5F5;
+    --statHp: #72F47A;
+    --statAtk: #DEBCBC;
+    --statDef: #F8D5A3;
+    --statSpAtk: #EC9F9F;
+    --statSpDef: #E9DA8F;
+    --statSpd: #96C2DB;
   }
   * {
     margin: 0;
@@ -35,5 +41,34 @@ export default createGlobalStyle`
   body {
     min-height: 100vh;
     background-color: var(--veryDarkGrayishBlue);
+  }
+
+  .wrapper {
+    margin-top: 5rem !important;
+    color: var(--veryLightBlue);
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    font-weight: normal;
+    font-size: 2rem;
+  }
+
+  @media (min-width: 576px) {
+    .wrapper {
+      margin-top: 7rem !important;
+    }
+    h2 {
+      font-size: 3.5rem;
+    }
+    h3 {
+      font-size: 2.5rem;
+    }
   }
 `

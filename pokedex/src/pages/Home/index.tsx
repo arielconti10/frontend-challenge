@@ -1,10 +1,10 @@
 import React from 'react'
 
-import pokedexIcon from '../assets/images/pokedexIcon.svg'
-import searchIcon from '../assets/images/searchIcon.svg'
-import Container from '../components/Container'
-import Header from '../components/Header'
-import AllPokemons from '../components/AllPokemons'
+import pokedexIcon from '../../assets/images/pokedexIcon.svg'
+import searchIcon from '../../assets/images/searchIcon.svg'
+import Container from '../../components/Container'
+import Header from '../../components/Header'
+import AllPokemons from '../../components/AllPokemons'
 
 const Home: React.FC = () => {
   return (
