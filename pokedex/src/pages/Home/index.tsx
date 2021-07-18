@@ -22,7 +22,7 @@ const Home: React.FC = () => {
           <form
             onSubmit={evt => {
               evt.preventDefault()
-              history.push('/' + inputRef.current.value)
+              history.push('/frontend-challenge/' + inputRef.current.value)
             }}
           >
             <input
