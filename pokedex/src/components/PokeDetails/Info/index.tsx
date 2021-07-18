@@ -5,9 +5,9 @@ type InfoProps = {
   color: string
   height: number
   weight: number
-  capture_rate: number
-  base_experience: number
-  base_happiness: number
+  capture_rate: number | string
+  base_experience: number | string
+  base_happiness: number | string
 }
 
 const Info: React.FC<InfoProps> = props => {

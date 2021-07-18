@@ -14,9 +14,9 @@ import { MainDetails } from './styles'
 
 type PokemonSpecieResponse = {
   color: string
-  base_happiness: number
-  capture_rate: number
-  evolution_chain: string
+  base_happiness: number | string
+  capture_rate: number | string
+  evolution_chain: string | null
 }
 type PokemonDetails = PokeHomeInfo & PokemonSpecieResponse
 
@@ -39,13 +39,20 @@ const Details: React.FC = () => {
         `https://pokeapi.co/api/v2/pokemon-species/${poke_id}`
       )
 
-      const specieDetails = await response.json()
-
+      if (response.ok) {
+        const specieDetails = await response.json()
+        return {
+          color: specieDetails.color.name,
+          base_happiness: specieDetails.base_happiness,
+          capture_rate: specieDetails.capture_rate,
+          evolution_chain: specieDetails.evolution_chain.url
+        }
+      }
       return {
-        color: specieDetails.color.name,
-        base_happiness: specieDetails.base_happiness,
-        capture_rate: specieDetails.capture_rate,
-        evolution_chain: specieDetails.evolution_chain.url
+        color: 'Unknow',
+        base_happiness: 'Unknow',
+        capture_rate: 'Unknow',
+        evolution_chain: null
       }
     }
 
@@ -105,8 +112,9 @@ const Details: React.FC = () => {
             <section>
               <h1>
                 #{pokemon.id}{' '}
-                {pokemon.name[0].toUpperCase() +
-                  pokemon.name.substr(1, pokemon.name.length)}
+                {pokemon.name
+                  .replace(/-/g, ' ')
+                  .replace(/(^\w|\s\w)/g, str => str.toUpperCase())}
               </h1>
               <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
@@ -125,7 +133,9 @@ const Details: React.FC = () => {
           </MainDetails>
           <Abilities abilities={pokemon.abilities} />
           <Type types={pokemon.types} />
-          <Evolution url={pokemon.evolution_chain} />
+          {pokemon.evolution_chain && (
+            <Evolution url={pokemon.evolution_chain} />
+          )}
         </>
       )}
       {error && (
