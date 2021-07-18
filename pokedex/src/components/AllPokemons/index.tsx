@@ -28,7 +28,7 @@ const AllPokemons: React.FC = () => {
     <>
       <Wrapper>
         {pokemons.map(pokemon => (
-          <Link to={`/${pokemon.id}`} key={pokemon.id}>
+          <Link to={`/frontend-challenge/${pokemon.id}`} key={pokemon.id}>
             <PokeCard>
               <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}

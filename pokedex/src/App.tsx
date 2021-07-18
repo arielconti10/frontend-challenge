@@ -9,8 +9,8 @@ import Details from './pages/Details'
 function App() {
   return (
     <PokeProvider>
-      <Route path="/" exact component={Home} />
-      <Route path="/:poke_id" component={Details} />
+      <Route path="/frontend-challenge" exact component={Home} />
+      <Route path="/frontend-challenge/:poke_id" component={Details} />
       <GlobalStyles />
     </PokeProvider>
   )

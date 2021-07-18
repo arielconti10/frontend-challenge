@@ -88,7 +88,7 @@ const Evolution: React.FC<EvolutionProps> = ({ url }) => {
         <div className="cards">
           {evolutions.map(evolution => (
             <Link
-              to={`/${evolution.id}`}
+              to={`/frontend-challenge/${evolution.id}`}
               key={evolution.name}
               onClick={() => {
                 window.scrollTo(0, 0)

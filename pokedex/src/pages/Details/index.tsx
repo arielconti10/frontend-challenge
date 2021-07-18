@@ -130,7 +130,7 @@ const Details: React.FC = () => {
       )}
       {error && (
         <>
-          <Link to="/">
+          <Link to="/frontend-challenge">
             <img
               src={arrowIcon}
               alt="arrowIcon"
