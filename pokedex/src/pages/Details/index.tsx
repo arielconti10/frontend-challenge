@@ -99,7 +99,7 @@ const Details: React.FC = () => {
       {!isLoading && !error && pokemon && (
         <>
           <MainDetails as="main">
-            <Link to="/">
+            <Link to="/frontend-challenge">
               <img src={arrowIcon} alt="arrowIcon" />
             </Link>
             <section>
