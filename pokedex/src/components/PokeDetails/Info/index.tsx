@@ -15,7 +15,8 @@ const Info: React.FC<InfoProps> = props => {
     <InfoWrapper>
       <span>
         <strong>Color: </strong>
-        {props.color}
+        {props.color[0].toUpperCase() +
+          props.color.substr(1, props.color.length)}
       </span>
       <span>
         <strong>Height: </strong>

@@ -9,8 +9,9 @@ const EvolutionWrapper = styled(Container)`
   }
   .cards {
     margin: 3rem 0;
-    display: grid;
-    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     gap: 2.5rem;
     article {
       max-width: 30rem;
@@ -35,17 +36,6 @@ const EvolutionWrapper = styled(Container)`
       article p {
         font-size: 1.8rem;
       }
-    }
-  }
-
-  @media (min-width: 768px) {
-    .cards {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 992px) {
-    .cards {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 `

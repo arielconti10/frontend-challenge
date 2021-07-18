@@ -53,7 +53,9 @@ const AllPokemons: React.FC = () => {
       {(qtdPokemons || isLoading) && qtdPokemons < 1118 && (
         <div id="sentinel" className="spinner"></div>
       )}
-      {error && !isLoading && <h1 className="info">Something went wrong!</h1>}
+      {error && !isLoading && (
+        <h1 className="info">{error?.message || 'Something went wrong!'}</h1>
+      )}
     </>
   )
 }

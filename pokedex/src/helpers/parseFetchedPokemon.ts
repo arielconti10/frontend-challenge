@@ -4,7 +4,9 @@ function parseFetchedPokemon(pokemon: Record<string, any>): PokeHomeInfo {
   return {
     id: pokemon.id,
     name: pokemon.name,
-    abilities: pokemon.abilities.map(({ name }: Record<string, any>) => name),
+    abilities: pokemon.abilities.map(
+      ({ ability }: Record<string, any>) => ability.name
+    ),
     types: pokemon.types.map(({ type }: Record<string, any>) => type.name),
     height: pokemon.height,
     weight: pokemon.weight,

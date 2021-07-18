@@ -21,7 +21,7 @@ const Header = styled.header`
     }
   }
 
-  .input-group {
+  form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,9 +41,14 @@ const Header = styled.header`
         color: white;
       }
     }
-    img {
-      width: 2.3rem;
-      margin-bottom: 0.7rem;
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      img {
+        width: 2.3rem;
+        margin-bottom: 0.7rem;
+      }
     }
   }
 

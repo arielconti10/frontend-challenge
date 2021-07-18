@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef, MutableRefObject } from 'react'
+import { useHistory } from 'react-router'
 
 import pokedexIcon from '../../assets/images/pokedexIcon.svg'
 import searchIcon from '../../assets/images/searchIcon.svg'
@@ -7,6 +8,9 @@ import Header from '../../components/Header'
 import AllPokemons from '../../components/AllPokemons'
 
 const Home: React.FC = () => {
+  const inputRef = useRef() as MutableRefObject<HTMLInputElement>
+  const history = useHistory()
+
   return (
     <>
       <Header>
@@ -15,14 +19,22 @@ const Home: React.FC = () => {
             <img src={pokedexIcon} alt="Pokedex Icon" />
             Pokédex
           </h1>
-          <div className="input-group">
+          <form
+            onSubmit={evt => {
+              evt.preventDefault()
+              history.push('/' + inputRef.current.value)
+            }}
+          >
             <input
               type="text"
               placeholder="Search"
               aria-label="Search for a pokemon"
+              ref={inputRef}
             />
-            <img src={searchIcon} alt="Search Icon" />
-          </div>
+            <button type="submit">
+              <img src={searchIcon} alt="Search Icon" />
+            </button>
+          </form>
         </Container>
       </Header>
       <AllPokemons />

@@ -13,7 +13,7 @@ const PokeProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     const fetchPokemons = async () => {
-      const responses = await getResponseArray(page, 20)
+      const responses = await getResponseArray(page, 15)
       const fetchedPokemons: PokeHomeInfo[] = []
       for (const response of responses) {
         const pokeRes = await response.json()

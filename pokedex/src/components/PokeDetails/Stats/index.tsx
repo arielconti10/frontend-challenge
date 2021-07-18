@@ -2,32 +2,39 @@ import React from 'react'
 
 import { StatsWrapper, StatBar } from './styles'
 
-type Stat = {
-  base: number
-  effort: number
-}
-
 type StatsProps = {
-  hp: Stat
-  atk: Stat
-  def: Stat
-  special_atk: Stat
-  special_def: Stat
-  speed: Stat
+  stats: {
+    name: string
+    base_stat: number
+    effort: number
+  }[]
 }
 
-const Stats: React.FC<StatsProps> = ({ children, ...stats }) => {
+const Stats: React.FC<StatsProps> = ({ stats }) => {
+  stats = stats.map(stat => {
+    stat.name = stat.name
+      .replace('attack', 'atk')
+      .replace('defense', 'def')
+      .replace('special-atk', 'special_atk')
+      .replace('special-def', 'special_def')
+    return { ...stat }
+  })
+
   return (
     <StatsWrapper>
-      {Object.entries(stats).map(([stat, value]) => (
-        <div key={stat}>
+      {stats.map(stat => (
+        <div key={stat.name}>
           <span>
-            {stat
+            {stat.name
               .replace(/(hp|atk|def|s)/g, str => str.toUpperCase())
               .replace('_', ' ')}
-            : {value.base} / Effort: {value.effort}
+            : {stat.base_stat} / Effort: {stat.effort}
           </span>
-          <StatBar id={stat} className="stat-bar" width={`${value.base}%`}>
+          <StatBar
+            id={stat.name}
+            className="stat-bar"
+            width={`${stat.base_stat > 100 ? 100 : stat.base_stat}%`}
+          >
             <div className="inner"></div>
           </StatBar>
         </div>
